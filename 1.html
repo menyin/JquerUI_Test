@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUI特效部分</title>
+    <link rel="stylesheet" href="css/jquery-ui.structure.css"/>
+    <link rel="stylesheet" href="css/jquery-ui.theme3.css"/>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin: 30px;
+        }
+
+        .testAddClass {
+            background: blue;
+        }
+
+        #dv4 {
+            display: none;
+        }
+        .testToggle {
+            background: blue;
+        }
+    </style>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#bt').click(function () {
+                $('#dv').animate({height: '500px'}, 2000, 'easeOutBounce', function () {
+                    alert('运动结束');
+                });
+            });
+            $('#bt2').click(function () {
+                $('#dv2').addClass('testAddClass', 1000, 'linear');
+            });
+            $('#bt3').click(function () {
+                $('#dv2').removeClass('testAddClass', 3000, 'linear');
+            });
+            $('#bt4').click(function () {
+                $('#dv4').show('blind', {direction: 'right'}, 3000);//并不是所有特效都有direction参数
+            });
+            $('#bt5').click(function () {
+                $('#dv4').hide('blind', {direction: 'right'}, 3000);
+            });
+
+
+            $('#bt6').click(function () {
+                $('#dv6').toggleClass('testToggle',3000,'linear', function () {
+                    alert('testToggle结束');
+                });
+            });
+            $('#bt7').click(function () {
+                $('#dv6').toggle({effect:'blind',easing:'linear',duration:2000});
+            });
+
+            $('#bt8').click(function () {
+                $('#dv8').effect('blind',3000, function () {//blind效果最后居然将div隐藏了，其他特效不会
+                   $('#dv8').show();
+                });
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+<input type="button" id="bt" value="运动"/>
+
+<div id="dv">
+    animate方法测试div
+</div>
+
+<input type="button" id="bt2" value="addClass"/>
+<input type="button" id="bt3" value="removeClass"/>
+
+<div id="dv2">
+    addClass方法测试div
+</div>
+<input type="button" id="bt4" value="show"/>
+<input type="button" id="bt5" value="hidden"/>
+<div id="dv4">
+    showhide方法测试div
+</div>
+<br/>
+<br/>
+<input type="button" id="bt6" value="toggleClass"/>
+<input type="button" id="bt7" value="toggle"/>
+
+<div id="dv6">
+    toggleClass和toggle方法测试div
+</div>
+<input type="button" id="bt8" value="effect"/>
+<div id="dv8">
+    effect方法测试div
+</div>
+</body>
+
+</html>
