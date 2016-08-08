@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQUI交互部分</title>
+    <link href="css/jquery-ui.structure.css"/>
+    <link href="css/jquery-ui.theme3.css"/>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        #parent {
+            width: 400px;
+            height: 400px;
+            margin: 30px;
+            padding: 0;
+            background: none;
+            border: 1px solid black;
+        }
+        ul li {
+            width: 200px;
+            height: 30px;
+            background: #0078ae;
+            color:white;
+            border:1px solid black;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            var i=0;
+            $('#dv1').draggable({
+                cursor: "pointer",//设置拖动时的鼠标样式
+                containment: "#parent",//设置拖动的范围，值可为Selector 、Element、String 、Array
+                cancel:"#bt1",
+                grid:[100,100],//设置拖拽以指定数值进行移动
+                opacity:0.5,
+                scroll:true,
+//                axis: "x"//限制拖动的方向为x轴
+
+                create: function () {//创建时触发的事件，该事件注册只能通过此方式
+                    document.title = 'create触发';
+                },
+                drag: function () {
+                    document.title = 'drag触发' + (i++);
+                },
+                start: function () {
+                    document.title = 'start触发';
+                },
+                stop: function () {
+                    document.title = 'stop触发';
+                }
+            });
+            $('#bt1').click(function () {
+                var option=$('#dv1').draggable('option');//可以获取改拖拽效果对象的参数，具体可调试查看有什么参数
+                alert(option.grid);
+                var grid=$('#dv1').draggable('option','grid');//也可这个获取单个参数
+                alert(grid);
+            });
+            $('#bt2').click(function () {
+                var instance=$('#dv1').draggable('instance');//通过instance方法获取拖拽效果对象实例
+                var option = instance.option();//通过instance实例可以调到其所包含的方法
+            });
+            $('#sortableUl').sortable();
+            $( "ul.droptrue" ).sortable({
+                connectWith: "ul"
+            });
+
+            $( "ul.dropfalse" ).sortable({
+                connectWith: "ul",
+                dropOnEmpty: false
+            });
+
+            $( "#sortable1, #sortable2, #sortable3" ).disableSelection();
+        });
+    </script>
+
+</head>
+<body>
+<h1>拖拽效果</h1>
+<div id="parent">
+    <div id="dv1">
+        draggable()测试div
+    </div>
+    <input type="button" id="bt1" value="option方法测试"/>
+    <input type="button" id="bt2" value="instance方法测试"/>
+</div>
+<h1>排序效果</h1>
+<ul id="sortableUl">
+    <li>第1个排序li</li>
+    <li>第2个排序li</li>
+    <li>第3个排序li</li>
+    <li>第4个排序li</li>
+    <li>第5个排序li</li>
+</ul>
+<ul id="sortable1" class="droptrue">
+    <li class="ui-state-default">Can be dropped..</li>
+    <li class="ui-state-default">..on an empty list</li>
+    <li class="ui-state-default">Item 3</li>
+    <li class="ui-state-default">Item 4</li>
+    <li class="ui-state-default">Item 5</li>
+</ul>
+
+<ul id="sortable2" class="dropfalse">
+    <li class="ui-state-highlight">Cannot be dropped..</li>
+    <li class="ui-state-highlight">..on an empty list</li>
+    <li class="ui-state-highlight">Item 3</li>
+    <li class="ui-state-highlight">Item 4</li>
+    <li class="ui-state-highlight">Item 5</li>
+</ul>
+<ul id="sortable3" class="droptrue">
+</ul>
+</body>
+</html>
