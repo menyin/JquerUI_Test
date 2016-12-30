@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scale=no">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <title></title>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">页面1头部</div>
+    <div role="main" class="ui-content">
+        <a href="#panel1" class="ui-btn" data-mini="true">弹出panel容器</a>
+        <div data-role="panel" id="panel1" data-position="left" data-display="overlay" data-theme="a">
+            <h3>系统菜单</h3>
+            <p>菜单1</p>
+            <p>菜单1</p>
+            <a href="#demo-links" data-rel="close" class="ui-btn ui-btn-icon-left ui-btn-delete ui-btn-inline">关闭</a>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+ 页面底部
+    </div>
+</div>
+
+</body>
+</html>

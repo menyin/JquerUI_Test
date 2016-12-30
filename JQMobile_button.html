@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scale=no">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <title></title>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">页面1头部</div>
+    <a href="#page2" data-role="button" style="margin:10px;" data-transition="slide">跳转到第二页</a>
+    <div role="main" class="ui-content">
+        <div data-role="controlgroup" data-type="horizontal">
+            <a href="#" class="ui-btn ui-corner-all">菜单1</a>
+            <a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-left">菜单2</a>
+            <a href="#" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-right">菜单3</a>
+        </div>
+        <form>
+            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <button data-icon="home">Home</button>
+                <button data-icon="search" data-iconpos="notext">Search</button>
+                <label for="select-more-2a" class="ui-hidden-accessible">More</label>
+                <select name="select-more-2a" id="select-more-2a">
+                    <option value="">请选择</option>
+                    <option value="#">菜单1</option>
+                    <option value="#">菜单2</option>
+                    <option value="#">菜单3 </option>
+                </select>
+            </fieldset>
+        </form>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" >
+            <ul>
+                <li><a href="#" data-icon="grid" class="ui-btn-active"></a></li>
+                <li><a href="#"  data-icon="calendar"></a></li>
+                <li><a href="#" data-icon="back"></a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

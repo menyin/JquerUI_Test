@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1 user-scale=no">
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css"/>
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/jquery.mobile-1.4.5.js"></script>
+    <title></title>
+</head>
+<body>
+<div data-role="page" id="page1">
+    <div data-role="header">页面1头部</div>
+    <a href="#page2" data-role="button" style="margin:10px;" data-transition="slide">跳转到第二页</a>
+    <div role="main" class="ui-content">页面1内容区域</div>
+    <div data-role="footer" data-position="fixed">底部</div>
+</div>
+<div data-role="page" id="page2">
+    <div data-role="header">页面2头部</div>
+    <div role="main" class="ui-content">页面2内容区域</div>
+    <a href="#page3" data-role="button" style="margin:10px;" data-transition="slide">跳转到第三页</a>
+    <a href="#page2" data-role="button" data-rel="back" style="margin:10px;" data-transition="slide">返回到前一个页面</a>
+    <div data-role="footer" data-position="fixed">页面2底部</div>
+</div>
+<div data-role="page" id="page3">
+    <div data-role="header" data-position="fixed" data-fullscreen="true">页面3头部</div>
+    <div role="main" class="ui-content">页面3内容区域</div>
+    <a href="#page2" data-role="button" data-rel="back" style="margin:10px;" data-transition="slide">返回到前一个页面</a>
+    <div data-role="footer" data-position="fixed" data-fullscreen="true">页面3底部</div>
+</div>
+</body>
+</html>
